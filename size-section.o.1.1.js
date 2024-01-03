@@ -1,21 +1,23 @@
-document.addEventListener("DOMContentLoaded", function () {
-    var sizesContainer = document.querySelector(".size-container");
-    sizesContainer.style.display = "none"; // Hide the sizes container by default
+    // Get sizes from the HTML content
+    var getSizes = document.querySelectorAll(".contant-detaiels-here")[0].innerHTML.split("Size-[")[1].split("]")[0];
 
-    var getSizes = document.querySelector(".contant-detaiels-here").innerHTML;
-    var sizesToShow = ["35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "S", "L", "M_", "X_", "XX"];
+    // Define size matches
+    var sizeMatches = ["35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "S", "L", "M_", "X_", "XX"];
 
-    sizesToShow.forEach(function (size) {
-        var sizeElement = document.querySelector("#siz" + size);
-        var sizeMatch = getSizes.includes(size);
-        sizeElement.style.display = sizeMatch ? "unset" : "none";
+    // Display or hide sizes based on matches
+    sizeMatches.forEach(function (size) {
+        var element = document.querySelector("#siz" + size);
+        getSizes.includes(size) ? element.style.display = "unset" : element.style.display = "none";
     });
 
-    var siz30Element = document.querySelector("#siz30");
-    var siz30Match = getSizes.includes("30") || getSizes.includes("31") || getSizes.includes("32") || getSizes.includes("33") || getSizes.includes("34");
-    siz30Element.style.display = siz30Match ? "unset" : "none";
+    // Display or hide sizes based on specific values
+    ["110", "115", "120", "125", "130", "135", "140", "145", "150", "155", "160"].forEach(function (value) {
+        var element = document.querySelector("#siz" + value + "CM");
+        getSizes.includes(value) ? element.style.display = "unset" : element.style.display = "none";
+    });
 
-    sizesContainer.style.display = sizesToShow.some(function (size) {
-        return getSizes.includes(size);
-    }) ? "unset" : "none";
-});
+    // Display or hide sizes based on regular expression match
+    var getMatchSize = getSizes.match(/[0-9]|[A-Z]/);
+    var sizeContainer = document.querySelectorAll(".size-container")[0];
+
+    getMatchSize ? sizeContainer.style.display = "unset" : sizeContainer.style.display = "none";
