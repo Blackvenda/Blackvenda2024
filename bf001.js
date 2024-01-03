@@ -1,26 +1,34 @@
+// Get references to the elements
 const colorDisplayText = document.getElementById('colorDisplayBew');
 const colorOptionsx = document.querySelectorAll('.color-optionNew');
 const sizeLabels = document.querySelectorAll('.size');
 const contentElement = document.querySelectorAll(".contant-detaiels-here")[0];
-const contentDiscriptionImg = contentElement ? contentElement.innerHTML.split("DiscriptionImgsUrl-[")[1].split("]")[0] : null;
 
+// Function to update the color display and disable out-of-stock sizes
 function updateColorDisplay(selectedColor) {
     colorDisplayText.innerText = selectedColor;
-    removeActiveClassAndCheckSizeInput();
+    removeActiveClassAndCheckSizeInput(); // Remove active class and set active size input to checked
     disableOutOfStockSizes(selectedColor);
 }
 
-function removeActiveClassAndCheckSizeInput() {
-    sizeLabels.forEach(function(sizeLabel) {
-        sizeLabel.classList.remove('active');
-    });
-}
+// Initial call to set the initial color display
+updateColorDisplay(colorOptionsx[0].getAttribute('data-color'));
 
+// Add click event listeners to the color divs
+colorOptionsx.forEach(function(colorOption) {
+    colorOption.addEventListener('click', function() {
+        const selectedColor = colorOption.getAttribute('data-color');
+        updateColorDisplay(selectedColor);
+    });
+});
+
+// Function to disable out-of-stock sizes for the selected color
 function disableOutOfStockSizes(selectedColor) {
     const outOfStockSizes = {};
-    const getCol = contentElement ? contentElement.innerText.split("OutofStockSizes-[")[1].split("]")[0].toLowerCase() : "";
-    const availableSizes = contentElement ? contentElement.innerText.split("Size-[")[1].split("]")[0] : "";
+    const getCol = contentElement.innerText.split("OutofStockSizes-[")[1].split("]")[0].toLowerCase();
+    const availableSizes = contentElement.innerText.split("Size-[")[1].split("]")[0];
 
+    // Parse the OutofStockSizes data
     getCol.split(',').forEach(function(colorInfo) {
         const parts = colorInfo.split('(');
         const color = parts[0];
@@ -33,90 +41,97 @@ function disableOutOfStockSizes(selectedColor) {
 
     let firstOutOfStockSizeFound = false;
 
+    // Iterate over size labels and update classes
     sizeLabels.forEach(function(sizeLabel, index) {
         const sizeInput = sizeLabel.querySelector('input');
         const sizeValue = sizeInput.value;
-
         if (sizes.includes(sizeValue)) {
             sizeInput.disabled = true;
-            sizeLabel.classList.replace('size', 'size1');
+            sizeLabel.classList.replace('size', 'size1'); // Replace the class
         } else if (availableSizeArray.includes(sizeValue + '(1)')) {
             sizeInput.disabled = false;
-            sizeLabel.classList.replace('size1', 'size');
+            sizeLabel.classList.replace('size1', 'size'); // Restore the original class
 
+            // Automatically add "active" class to the next available size
             if (!firstOutOfStockSizeFound) {
                 sizeLabel.classList.add('active');
-                sizeInput.click();
+                sizeInput.click(); // Programmatically trigger a click on the size input
                 firstOutOfStockSizeFound = true;
             }
         }
     });
 }
 
-function showHideColorOptions() {
-    if (contentElement) {
-        const contentText = contentElement.innerText;
-        const colorOptionsElement = document.querySelectorAll(".color-optionsNew")[0];
-
-        if (contentText.includes("OutofStockSizes-[")) {
-            colorOptionsElement.style.display = "flex";
-        } else {
-            colorOptionsElement.style.display = "none";
-        }
-    }
-}
-
-function showHideImages() {
-    const urlMatches = contentDiscriptionImg;
-
-    if (urlMatches && urlMatches.length > 1) {
-        const imageUrls = urlMatches.split(',');
-        const descriptionImageDiv = document.querySelector('#description-image');
-        const showMoreBtn = document.querySelector('#showMoreBtn');
-        const showLessBtn = document.querySelector('#showLessBtn');
-
-        function showImages() {
-            descriptionImageDiv.style.maxHeight = 'none';
-            showMoreBtn.style.display = 'none';
-            showLessBtn.style.display = 'block';
-        }
-
-        function hideImages() {
-            descriptionImageDiv.style.maxHeight = '300px';
-            showMoreBtn.style.display = 'block';
-            showLessBtn.style.display = 'none';
-        }
-
-        showMoreBtn.addEventListener('click', showImages);
-        showLessBtn.addEventListener('click', hideImages);
-
-        hideImages();
-
-        imageUrls.forEach((imageUrl) => {
-            const imgElement = document.createElement('img');
-            imgElement.src = imageUrl.trim();
-            imgElement.style.width = "100%";
-            descriptionImageDiv.appendChild(imgElement);
-        });
-    }
-}
-
-function changeProductImages() {
-    const selectColorz = document.querySelectorAll(".color-optionNew");
-    const selectImagesz = document.querySelectorAll(".natural-thumbnail");
-
-    selectColorz.forEach(function(colorOption, index) {
-        colorOption.addEventListener("click", function() {
-            selectImagesz.forEach(function(thumbnail, thumbnailIndex) {
-                if (thumbnail.tagName.toLowerCase() !== 'a') {
-                    thumbnail.style.opacity = index === thumbnailIndex ? 1 : 0;
-                }
-            });
-        });
+// Function to remove the "active" class and set the active size input to checked
+function removeActiveClassAndCheckSizeInput() {
+    sizeLabels.forEach(function(sizeLabel) {
+        sizeLabel.classList.remove('active');
     });
 }
 
-updateColorDisplay(colorOptionsx[0].getAttribute('data-color'));
-showHideColorOptions();
-showHideImages();
-changeProductImages();
+// Check if the element's inner text contains "OutofStockSizes-["
+if (contentElement) {
+    // Show or hide the element with class "color-optionsNew"
+    const colorOptionsElement = document.querySelectorAll(".color-optionsNew")[0];
+    colorOptionsElement.style.display = contentElement.innerText.includes("OutofStockSizes-[") ? "flex" : "none";
+} else {
+    console.error("Element with class 'contant-detaiels-here' not found.");
+}
+
+const contentHereDiv = document.querySelector('.contant-detaiels-here');
+const contentDiscriptionImg = contentHereDiv.innerHTML.split("DiscriptionImgsUrl-[")[1].split("]")[0];
+
+if (contentHereDiv) {
+    document.querySelectorAll("#showMoreBtn")[0].style.display = "none";
+}
+
+const urlMatches = contentDiscriptionImg;
+
+if (urlMatches && urlMatches.length > 1) {
+    const imageUrls = urlMatches.split(',');
+    const descriptionImageDiv = document.querySelector('#description-image');
+    const showMoreBtn = document.querySelector('#showMoreBtn');
+    const showLessBtn = document.querySelector('#showLessBtn');
+
+    // Function to show images
+    function showImages() {
+        descriptionImageDiv.style.maxHeight = 'none';
+        showMoreBtn.style.display = 'none';
+        showLessBtn.style.display = 'block';
+    }
+
+    // Function to hide images
+    function hideImages() {
+        descriptionImageDiv.style.maxHeight = '300px';
+        showMoreBtn.style.display = 'block';
+        showLessBtn.style.display = 'none';
+    }
+
+    showMoreBtn.addEventListener('click', showImages);
+    showLessBtn.addEventListener('click', hideImages);
+
+    // Initially, hide images
+    hideImages();
+
+    imageUrls.forEach((imageUrl) => {
+        const imgElement = document.createElement('img');
+        imgElement.src = imageUrl.trim();
+        imgElement.style.width = "100%";
+        descriptionImageDiv.appendChild(imgElement);
+    });
+}
+
+var selectColorz = document.querySelectorAll(".color-optionNew");
+var selectImagesz = document.querySelectorAll(".natural-thumbnail");
+
+// Add click event listener to each color option
+selectColorz.forEach(function(colorOption, index) {
+    colorOption.addEventListener("click", function() {
+        // Reset opacity for all thumbnails, excluding 'a' elements
+        selectImagesz.forEach(function(thumbnail, thumbnailIndex) {
+            if (thumbnail.tagName.toLowerCase() !== 'a') {
+                thumbnail.style.opacity = index === thumbnailIndex ? 1 : 0;
+            }
+        });
+    });
+});
