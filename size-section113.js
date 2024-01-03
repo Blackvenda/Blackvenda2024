@@ -12,10 +12,22 @@ function changeSize() {
 
 // Function to find selected radio button and update result
 function findSelected() {
-    let selected = document.querySelector("input[name='Sizes']:checked").value;
-    document.querySelectorAll("#size-display-new")[0].textContent = selected;
-    document.querySelectorAll("#disPlaySize")[0].innerHTML = "<b>(Size - " + selected + ")</b>";
-    document.querySelectorAll(".inb old-price efont")[0].innerHTML = "<b>(Size - " + selected + ")</b>";
+    let selected = document.querySelector("input[name='Sizes']:checked");
+    if (selected) {
+        selected = selected.value;
+
+        // Update result
+        document.querySelectorAll("#size-display-new")[0].textContent = selected;
+        document.querySelectorAll("#disPlaySize")[0].innerHTML = "<b>(Size - " + selected + ")</b>";
+        document.querySelectorAll(".inb old-price efont")[0].innerHTML = "<b>(Size - " + selected + ")</b>";
+
+        // Update quantity available and item code
+        var quantityAvailable = dataFiz.split(selected + "(")[1].split(")")[0] + " Pieces available";
+        var itemCodeValue = dataFiz.split("Item Code -[")[1].split("]")[0] + "-" + selected;
+
+        document.querySelectorAll(".qtyAviBal")[0].innerHTML = quantityAvailable;
+        document.querySelectorAll("#itemCode")[0].value = itemCodeValue;
+    }
 }
 
 // Function to handle quantity change
