@@ -1,74 +1,31 @@
-// Function to set value for an element
-function setValue(selector, value) {
-    document.querySelectorAll(selector)[0].value = value;
-}
+var getInfo11 = document.querySelectorAll(".contant-detaiels-here")[0].innerHTML.split("Size-[")[1].split("]")[0];
+var getInfo112 = getInfo11.slice(0, 3);
 
-// Function to handle size change
-function changeSize() {
-    const sizes = document.querySelectorAll('.size');
-    sizes.forEach(size => size.classList.remove('active'));
-    this.classList.add('active');
-}
-
-// Function to find selected radio button and update result
-function findSelected() {
-    let selected = document.querySelector("input[name='Sizes']:checked");
-    if (selected) {
-        selected = selected.value;
-
-        // Update result
-        document.querySelectorAll("#size-display-new")[0].textContent = selected;
-        document.querySelectorAll("#disPlaySize")[0].innerHTML = "<b>(Size - " + selected + ")</b>";
-        document.querySelectorAll(".inb old-price efont")[0].innerHTML = "<b>(Size - " + selected + ")</b>";
-
-        // Update quantity available and item code
-        var quantityAvailable = dataFiz.split(selected + "(")[1].split(")")[0] + " Pieces available";
-        var itemCodeValue = dataFiz.split("Item Code -[")[1].split("]")[0] + "-" + selected;
-
-        document.querySelectorAll(".qtyAviBal")[0].innerHTML = quantityAvailable;
-        document.querySelectorAll("#itemCode")[0].value = itemCodeValue;
-    }
-}
-
-// Function to handle quantity change
-function mySizChan() {
-    var avSiz = document.querySelectorAll(".qtyAviBal")[0].innerHTML.slice(0, 2);
-
-    if (avSiz.match("1")) {
-        document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
-        document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
-        document.getElementById("quantity").value = "1";
-    } else {
-        document.querySelector(".plus-btn").removeAttribute("disabled");
-        document.getElementById("quantity").value = "1";
-    }
-
-    if (avSiz.match("2")) {
-        function clichangeValue() {
-            document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
-        }
-    }
-}
-
-// Function to handle price calculation
-function priceTotal() {
-    var subTotal = valueCount * priceDetailesz;
-    var exChrg = 200;
-
-    if (valueCount == 2) {
-        var total = valueCount * priceDetailesz + (+GETdilv) + (+exChrg);
-        document.querySelectorAll(".get-dil-Price")[0].innerHTML = "LKR." + (+GETdilv + exChrg);
-    } else if (valueCount == 3) {
-        var total = valueCount * priceDetailesz + (+GETdilv) + (+exChrg) * 2;
-        document.querySelectorAll(".get-dil-Price")[0].innerHTML = "LKR." + (+GETdilv + exChrg * 2);
-    } else {
-        var total = valueCount * priceDetailesz + (+GETdilv);
-        document.querySelectorAll(".get-dil-Price")[0].innerHTML = "LKR." + (+GETdilv);
-    }
-
-    document.getElementById("ItemFinalTotaleHere").innerText = "LKR." + total;
-    document.querySelectorAll("#ItemSubtotaleHere")[0].innerHTML = "LKR." + subTotal;
-
-    document.querySelectorAll("#PriceTag")[0].value = "LKR." + total;
-    document.querySelectorAll("#ItemQuntituy")[0].innerHTML = " <b>(x " + valueCount + ")</b>";
-}
+if (getInfo112.match("115")){
+document.querySelectorAll("#disPlaySize")[0].innerHTML ="115CM";
+document.querySelectorAll("#size-display-new")[0].innerHTML ="115CM";
+ document.querySelectorAll("#siz115CM1")[0].setAttribute("checked", true); 
+  document.querySelectorAll("#siz115CM")[0].setAttribute("class", "size active");
+ } else if (getInfo112.match("125")){
+document.querySelectorAll("#disPlaySize")[0].innerHTML ="125CM";
+document.querySelectorAll("#size-display-new")[0].innerHTML ="125CM";
+ document.querySelectorAll("#siz125CM1")[0].setAttribute("checked", true); 
+  document.querySelectorAll("#siz125CM")[0].setAttribute("class", "size active");
+ } else if (getInfo112.match("135")){
+document.querySelectorAll("#siz35")[0].style.display= "none";
+document.querySelectorAll("#disPlaySize")[0].innerHTML ="135CM";
+document.querySelectorAll("#size-display-new")[0].innerHTML ="135CM";
+ document.querySelectorAll("#siz135CM1")[0].setAttribute("checked", true); 
+  document.querySelectorAll("#siz135CM")[0].setAttribute("class", "size active");
+ } else if (getInfo112.match("145")){
+document.querySelectorAll("#siz45")[0].style.display= "none";
+document.querySelectorAll("#disPlaySize")[0].innerHTML ="145CM";
+document.querySelectorAll("#size-display-new")[0].innerHTML ="135CM";
+ document.querySelectorAll("#siz145CM1")[0].setAttribute("checked", true); 
+  document.querySelectorAll("#siz145CM")[0].setAttribute("class", "size active");
+ } else if (getInfo112.match("155")){
+document.querySelectorAll("#disPlaySize")[0].innerHTML ="155CM";
+document.querySelectorAll("#size-display-new")[0].innerHTML ="155CM";
+ document.querySelectorAll("#siz155CM1")[0].setAttribute("checked", true); 
+  document.querySelectorAll("#siz155CM")[0].setAttribute("class", "size active");
+ }
