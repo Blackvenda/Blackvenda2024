@@ -36,3 +36,12 @@
       document.getElementById("quantity").value = getQttvval;
     }
   }
+
+
+const checkAvilableqtt = document.querySelectorAll(".contant-detaiels-here")[0].innerHTML.split("Quantity-[")[1].split("]")[0];
+const qttisOne = checkAvilableqtt.match("1")
+
+if(qttisOne){
+	document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
+}
+
