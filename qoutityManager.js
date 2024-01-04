@@ -26,9 +26,9 @@ radiBtns.forEach(radioBtn => {
 });
 
 function mySizChan() {
-    var avSiz = document.querySelectorAll(".qtyAviBal")[0].innerHTML.slice(0,2);
+    var avSiz = document.querySelectorAll(".qtyAviBal")[0].innerHTML;
 
-if (avSiz.match("1")){
+if (avSiz.match("1 Pieces available")){
 document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
 document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
     document.getElementById("quantity").value = "1";
@@ -37,7 +37,7 @@ document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
     document.getElementById("quantity").value = "1";
 }
 
-if(avSiz.match("2")){
+if(avSiz.match("2 Pieces available")){
 function clichangeValue() {
   document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
 }
