@@ -87,6 +87,12 @@
         }
     }
 
+// Function to generate a 10-digit user code
+function generateUserCode() {
+    const userCode = Math.floor(1000000000 + Math.random() * 9000000000); // Generate a random 10-digit number
+    return userCode.toString(); // Convert to string
+}
+
 // Function to handle signup
 async function signup() {
     const name = document.getElementById('signup-name-input').value;
@@ -115,13 +121,6 @@ async function signup() {
     } else {
         document.getElementById('error-message').textContent = response;
     }
-}
-
-
-// Function to generate a 10-digit user code
-function generateUserCode() {
-    const userCode = Math.floor(1000000000 + Math.random() * 9000000000); // Generate a random 10-digit number
-    return userCode.toString(); // Convert to string
 }
 
 
