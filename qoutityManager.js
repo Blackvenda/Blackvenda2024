@@ -34,10 +34,14 @@ if (avSiz.match("1")){
 document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
 document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
     document.getElementById("quantity").value = "1";
-}else if(avSiz.match(getQttvval){
+}else if(avSiz.match(getQttvval)){
     document.querySelector(".plus-btn").removeAttribute("disabled");
     document.getElementById("quantity").value = getQttvval;
 } };
+
+if(avSiz.match(getQttvval)){
+    document.querySelector(".plus-btn").removeAttribute("disabled");
+    document.getElementById("quantity").value = getQttvval;};
 
 
 
