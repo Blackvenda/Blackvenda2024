@@ -102,6 +102,9 @@ async function signup() {
     // Generate a 10-digit user code
     const userCode = generateUserCode();
 
+    // Set the generated userCode to the usernewId-input field
+    document.getElementById('usernewId-input').value = userCode;
+
     // Add client-side validation
     if (!name || !email || !password) {
         document.getElementById('error-message').textContent = 'Please fill in all fields.';
