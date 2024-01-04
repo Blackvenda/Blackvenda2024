@@ -25,8 +25,7 @@ radiBtns.forEach(radioBtn => {
 	radioBtn.addEventListener("change", findselected)
 });
 
-function mySizChan() {
-    var avSiz = document.querySelectorAll(".qtyAviBal")[0].innerHTML.slice(0, 2);
+var avSiz = document.querySelectorAll(".qtyAviBal")[0].innerHTML.slice(0, 2);
 
 if (avSiz.match("1")){
 document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
@@ -36,4 +35,3 @@ document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
     document.querySelector(".plus-btn").removeAttribute("disabled");
     document.getElementById("quantity").value = "1";
 }   
-}
