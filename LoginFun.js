@@ -118,11 +118,12 @@ async function signup() {
 }
 
 
-// Function to generate a 10-digit user ID
-function generateUserId() {
-    const userId = Math.floor(1000000000 + Math.random() * 9000000000); // Generate a random 10-digit number
-    return userId.toString(); // Convert to string
+// Function to generate a 10-digit user code
+function generateUserCode() {
+    const userCode = Math.floor(1000000000 + Math.random() * 9000000000); // Generate a random 10-digit number
+    return userCode.toString(); // Convert to string
 }
+
 
     // Function to handle logout
     function signOut() {
