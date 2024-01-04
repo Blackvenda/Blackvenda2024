@@ -92,6 +92,7 @@
         const name = document.getElementById('signup-name-input').value;
         const email = document.getElementById('signup-email-input').value;
         const password = document.getElementById('signup-password-input').value;
+        const usernewid = document.getElementById('usernewId-input').value;
 
         // Add client-side validation
         if (!name || !email || !password) {
@@ -99,7 +100,7 @@
             return;
         }
 
-        const response = await postData('signup', { name, email, password });
+        const response = await postData('signup', { name, email, password, usernewid });
 
         if (response === 'Signup successful') {
             document.getElementById('error-message').textContent = 'Signup successful';
