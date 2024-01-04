@@ -87,49 +87,32 @@
         }
     }
 
-// Temporarily set a known value for userCode
-const userCode = '1234567890';
+    // Function to handle signup
+    async function signup() {
+        const name = document.getElementById('signup-name-input').value;
+        const email = document.getElementById('signup-email-input').value;
+        const password = document.getElementById('signup-password-input').value;
 
-// Function to handle signup
-async function signup() {
-    const name = document.getElementById('signup-name-input').value;
-    const email = document.getElementById('signup-email-input').value;
-    const password = document.getElementById('signup-password-input').value;
+        // Add client-side validation
+        if (!name || !email || !password) {
+            document.getElementById('error-message').textContent = 'Please fill in all fields.';
+            return;
+        }
 
-    // Generate a 10-digit user code
-    const userCode = generateUserCode();
+        const response = await postData('signup', { name, email, password });
 
-    // Set the generated userCode to the usernewId-input field
-    document.getElementById('usernewId-input').value = userCode;
-
-    // Add client-side validation
-    if (!name || !email || !password) {
-        document.getElementById('error-message').textContent = 'Please fill in all fields.';
-        return;
+        if (response === 'Signup successful') {
+            document.getElementById('error-message').textContent = 'Signup successful';
+            setTimeout(function () {
+                document.getElementById('error-message').textContent = 'Please login...';
+            }, 5000); // 5000 milliseconds = 5 sec
+            setTimeout(function () {
+                document.getElementById('login-tab').click(); // Switch to login after 5 sec minutes
+            }, 5000); // 5000 milliseconds = 5 sec
+        } else {
+            document.getElementById('error-message').textContent = response;
+        }
     }
-
-    // Temporarily log the userCode for debugging purposes
-    console.log('Generated userCode:', userCode);
-
-    // Temporarily set a known value for userCode (for testing)
-    // const userCode = '1234567890';
-
-    const response = await postData('signup', { userCode, name, email, password }); // Include userCode in the data
-
-    if (response === 'Signup successful') {
-        document.getElementById('error-message').textContent = 'Signup successful';
-        setTimeout(function () {
-            document.getElementById('error-message').textContent = 'Please login...';
-        }, 5000); // 5000 milliseconds = 5 sec
-        setTimeout(function () {
-            document.getElementById('login-tab').click(); // Switch to login after 5 sec minutes
-        }, 5000); // 5000 milliseconds = 5 sec
-    } else {
-        document.getElementById('error-message').textContent = response;
-    }
-}
-
-
 
     // Function to handle logout
     function signOut() {
@@ -145,7 +128,7 @@ async function signup() {
 
     // Define the postData function here
     async function postData(action, data) {
-        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbwUfWewprPYv9-Q5uOYGiKGDzIMc1aRriYmEBck11G0jxYAkS_LWKqJ8Vh1mpa2eD0DPg/exec';
+        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxfj0zQI3elLJNIWVSWplOY3gYTAVUnpdrO_tVZ6NlRrrsumDTlSpCUJx9XGTuczCXvHA/exec';
 
         const url = googleScriptURL;
         const response = await fetch(url, {
