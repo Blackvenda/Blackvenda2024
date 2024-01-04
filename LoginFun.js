@@ -141,7 +141,7 @@ async function signup() {
 
     // Define the postData function here
     async function postData(action, data) {
-        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxeQDSBEozHZfHTt0eaVUAWwidoz13tlArMyhWddKFycGDjJEOi6B8QrUaWnUZsPrq1YQ/exec';
+        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbwUfWewprPYv9-Q5uOYGiKGDzIMc1aRriYmEBck11G0jxYAkS_LWKqJ8Vh1mpa2eD0DPg/exec';
 
         const url = googleScriptURL;
         const response = await fetch(url, {
