@@ -87,11 +87,14 @@
         }
     }
 
-    // Function to handle signup
+// Function to handle signup
 async function signup() {
     const name = document.getElementById('signup-name-input').value;
     const email = document.getElementById('signup-email-input').value;
     const password = document.getElementById('signup-password-input').value;
+
+    // Generate a 10-digit user code
+    const userCode = generateUserCode();
 
     // Add client-side validation
     if (!name || !email || !password) {
@@ -99,10 +102,7 @@ async function signup() {
         return;
     }
 
-    // Generate a 10-digit user ID
-    const userId = generateUserId();
-
-    const response = await postData('signup', { userId, name, email, password });
+    const response = await postData('signup', { userCode, name, email, password }); // Include userCode in the data
 
     if (response === 'Signup successful') {
         document.getElementById('error-message').textContent = 'Signup successful';
@@ -116,6 +116,7 @@ async function signup() {
         document.getElementById('error-message').textContent = response;
     }
 }
+
 
 // Function to generate a 10-digit user ID
 function generateUserId() {
