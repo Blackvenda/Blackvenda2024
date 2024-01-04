@@ -1,60 +1,46 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Use const and let instead of var
-    const radiBtns = document.querySelectorAll("input[name='Sizes']");
-    const result = document.querySelector("#size-display-new");
-    const qtyAviBal = document.querySelector(".qtyAviBal");
-    const itemCodeInput = document.querySelector("#itemCode");
-    const contantDetaiels = document.querySelector(".contant-detaiels-here");
+let radiBtns = document.querySelectorAll("input[name='Sizes']");
+	let result = document.querySelectorAll("#size-display-new")[0];
+    var avSiz = document.querySelectorAll(".qtyAviBal")[0].innerHTML;
+    var dataFiz = document.querySelectorAll(".contant-detaiels-here")[0].innerHTML;
+	document.querySelectorAll(".qtyAviBal")[0].innerHTML = dataFiz.split("Size-[")[1].split("]")[0].split("(")[1].split(")")[0]+ " Pieces available";
 
-    // Extract dataFiz information
-    const dataFiz = contantDetaiels.innerHTML;
-    const sizePieces = dataFiz.split("Size-[")[1].split("]")[0].split("(")[1].split(")")[0];
+document.querySelectorAll("#itemCode")[0].value =dataFiz.split("Item Code -[")[1].split("]")[0]+"-"+getInfo1;
 
-    // Update qtyAviBal and itemCodeInput
-    qtyAviBal.innerHTML = sizePieces + " Pieces available";
-    itemCodeInput.value = dataFiz.split("Item Code -[")[1].split("]")[0] + "-" + getInfo1;
 
-    // Update display size
-    document.querySelector("#disPlaySize").innerHTML = "<b>(Size - " + sizePieces + ")</b>";
-    document.querySelector(".inb old-price efont").innerHTML = "<b>(Size - " + sizePieces + ")</b>";
+let findselected = () => {
+	let selected = 				document.querySelector("input[name='Sizes']:checked").value;	
+    result.textContent = selected;   
 
-    // Function to find selected radio button
-    const findSelected = () => {
-        const selected = document.querySelector("input[name='Sizes']:checked").value;
-        result.textContent = selected;
+if(selected.match(selected)){
+ var ghe = document.querySelectorAll(".qtyAviBal")[0].innerHTML =dataFiz.split(selected+"(")[1].split(")")[0]+ " Pieces available";
+document.querySelectorAll("#itemCode")[0].value =dataFiz.split("Item Code -[")[1].split("]")[0]+"-"+selected;
+}
 
-        // Update qtyAviBal and itemCodeInput based on the selected size
-        qtyAviBal.innerHTML = dataFiz.split(selected + "(")[1].split(")")[0] + " Pieces available";
-        itemCodeInput.value = dataFiz.split("Item Code -[")[1].split("]")[0] + "-" + selected;
 
-        // Update display size
-        document.querySelector("#disPlaySize").innerHTML = "<b>(Size - " + selected + ")</b>";
-        document.querySelector(".inb old-price efont").innerHTML = "<b>(Size - " + selected + ")</b>";
-    };
+document.querySelectorAll("#disPlaySize")[0].innerHTML = "<b>(Size - "+selected+")</b>";
+    document.querySelectorAll(".inb old-price efont")[0].innerHTML = "<b>(Size - "+selected+")</b>";
+}
 
-    // Add change event listener to radio buttons
-    radiBtns.forEach(radioBtn => {
-        radioBtn.addEventListener("change", findSelected);
-    });
-
-    // Function to handle size change
-    function mySizChan() {
-        const avSiz = qtyAviBal.innerHTML.slice(0, 2);
-
-        if (avSiz === "1") {
-            document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
-            document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
-            document.getElementById("quantity").value = "1";
-        } else {
-            document.querySelector(".plus-btn").removeAttribute("disabled");
-            document.getElementById("quantity").value = "1";
-        }
-
-        if (avSiz === "2") {
-            // Add your logic for size 2 here
-        }
-    }
-
-    // Call mySizChan function
-    mySizChan();
+radiBtns.forEach(radioBtn => {
+	radioBtn.addEventListener("change", findselected)
 });
+
+function mySizChan() {
+    var avSiz = document.querySelectorAll(".qtyAviBal")[0].innerHTML.slice(0,2);
+
+if (avSiz.match("1")){
+document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
+document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
+    document.getElementById("quantity").value = "1";
+}else {
+    document.querySelector(".plus-btn").removeAttribute("disabled");
+    document.getElementById("quantity").value = "1";
+}
+
+if(avSiz.match("2")){
+function clichangeValue() {
+  document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
+}
+}
+    
+}
