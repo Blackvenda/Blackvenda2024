@@ -108,6 +108,12 @@ async function signup() {
         return;
     }
 
+    // Temporarily log the userCode for debugging purposes
+    console.log('Generated userCode:', userCode);
+
+    // Temporarily set a known value for userCode (for testing)
+    // const userCode = '1234567890';
+
     const response = await postData('signup', { userCode, name, email, password }); // Include userCode in the data
 
     if (response === 'Signup successful') {
@@ -122,6 +128,7 @@ async function signup() {
         document.getElementById('error-message').textContent = response;
     }
 }
+
 
 
     // Function to handle logout
