@@ -129,7 +129,7 @@
 
     // Define the postData function here
     async function postData(action, data) {
-        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxfj0zQI3elLJNIWVSWplOY3gYTAVUnpdrO_tVZ6NlRrrsumDTlSpCUJx9XGTuczCXvHA/exec';
+        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxhDr_1ujmyffRTYEGlqptrv3Ij5Umrxcibp6OQSkpIMUantWdHzGTGXcHb6m1ZOiGPDw/exec';
 
         const url = googleScriptURL;
         const response = await fetch(url, {
