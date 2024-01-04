@@ -35,3 +35,20 @@ document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
     document.querySelector(".plus-btn").removeAttribute("disabled");
     document.getElementById("quantity").value = "1";
 }   
+    function mySizChan() {
+        var avSiz = document.querySelectorAll(".qtyAviBal")[0].innerHTML.slice(0, 2);
+
+        if (avSiz.match("1")) {
+            document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
+            document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
+            document.getElementById("quantity").value = "1";
+        } else {
+            document.querySelector(".plus-btn").removeAttribute("disabled");
+            document.getElementById("quantity").value = "1";
+        }
+    }
+
+    // Run the function when the page has fully loaded
+    window.onload = function () {
+        mySizChan();
+    };
