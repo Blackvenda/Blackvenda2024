@@ -28,20 +28,16 @@ radiBtns.forEach(radioBtn => {
 
 function mySizChan() {
     var avSiz = document.querySelectorAll(".qtyAviBal")[0].innerHTML.slice(0,2);
+    const getQttvval = document.querySelectorAll(".contant-detaiels-here")[0].innerHTML.split("Quantity-[")[1].split("]")[0];
 
 if (avSiz.match("1")){
 document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
 document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
     document.getElementById("quantity").value = "1";
-}else {
+}else if(avSiz.match(getQttvval){
     document.querySelector(".plus-btn").removeAttribute("disabled");
     document.getElementById("quantity").value = "1";
-}
+} };
 
-if(avSiz.match("2")){
-function clichangeValue() {
-  document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
-}
-}
-    
-}
+
+
