@@ -26,21 +26,14 @@ radiBtns.forEach(radioBtn => {
 });
 
 function mySizChan() {
-    var avSiz = document.querySelectorAll(".qtyAviBal")[0].innerHTML;
+    var avSiz = document.querySelectorAll(".qtyAviBal")[0].innerHTML.slice(0, 2);
 
-if (avSiz.match("1 Pieces available")){
+if (avSiz.match("1")){
 document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
 document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
     document.getElementById("quantity").value = "1";
 }else {
     document.querySelector(".plus-btn").removeAttribute("disabled");
     document.getElementById("quantity").value = "1";
-}
-
-if(avSiz.match("2 Pieces available")){
-function clichangeValue() {
-  document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
-}
-}
-    
+}   
 }
