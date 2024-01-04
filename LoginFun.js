@@ -87,11 +87,8 @@
         }
     }
 
-// Function to generate a 10-digit user code
-function generateUserCode() {
-    const userCode = Math.floor(1000000000 + Math.random() * 9000000000); // Generate a random 10-digit number
-    return userCode.toString(); // Convert to string
-}
+// Temporarily set a known value for userCode
+const userCode = '1234567890';
 
 // Function to handle signup
 async function signup() {
