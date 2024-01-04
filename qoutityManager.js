@@ -36,8 +36,9 @@ document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
     document.getElementById("quantity").value = "1";
 }else if(avSiz.match(getQttvval){
     document.querySelector(".plus-btn").removeAttribute("disabled");
-    document.getElementById("quantity").value = "1";
+    document.getElementById("quantity").value = getQttvval;
 } };
+
 
 
 
