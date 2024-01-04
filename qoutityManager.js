@@ -1,14 +1,15 @@
+
 let radiBtns = document.querySelectorAll("input[name='Sizes']");
-	let result = document.querySelectorAll("#size-display-new")[0];
-    var avSiz = document.querySelectorAll(".qtyAviBal")[0].innerHTML;
-    var dataFiz = document.querySelectorAll(".contant-detaiels-here")[0].innerHTML;
-	document.querySelectorAll(".qtyAviBal")[0].innerHTML = dataFiz.split("Size-[")[1].split("]")[0].split("(")[1].split(")")[0]+ " Pieces available";
+let result = document.querySelectorAll("#size-display-new")[0];
+var avSiz = document.querySelectorAll(".qtyAviBal")[0].innerHTML;
+var dataFiz = document.querySelectorAll(".contant-detaiels-here")[0].innerHTML;
+var sellingLimit document.querySelectorAll(".qtyAviBal")[0].innerHTML = dataFiz.split("Size-[")[1].split("]")[0].split("(")[1].split(")")[0]+ " Pieces available";
 
 document.querySelectorAll("#itemCode")[0].value =dataFiz.split("Item Code -[")[1].split("]")[0]+"-"+getInfo1;
 
 
 let findselected = () => {
-	let selected = 				document.querySelector("input[name='Sizes']:checked").value;	
+	let selected = 	 document.querySelector("input[name='Sizes']:checked").value;	
     result.textContent = selected;   
 
 if(selected.match(selected)){
@@ -25,7 +26,8 @@ radiBtns.forEach(radioBtn => {
 	radioBtn.addEventListener("change", findselected)
 });
 
-var avSiz = document.querySelectorAll(".qtyAviBal")[0].innerHTML.slice(0, 2);
+function mySizChan() {
+    var avSiz = document.querySelectorAll(".qtyAviBal")[0].innerHTML.slice(0,2);
 
 if (avSiz.match("1")){
 document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
@@ -34,21 +36,12 @@ document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
 }else {
     document.querySelector(".plus-btn").removeAttribute("disabled");
     document.getElementById("quantity").value = "1";
-}   
-    function mySizChan() {
-        var avSiz = document.querySelectorAll(".qtyAviBal")[0].innerHTML.slice(0, 2);
+}
 
-        if (avSiz.match("1")) {
-            document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
-            document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
-            document.getElementById("quantity").value = "1";
-        } else {
-            document.querySelector(".plus-btn").removeAttribute("disabled");
-            document.getElementById("quantity").value = "1";
-        }
-    }
-
-    // Run the function when the page has fully loaded
-    window.onload = function () {
-        mySizChan();
-    };
+if(avSiz.match("2")){
+function clichangeValue() {
+  document.querySelector(".plus-btn").setAttribute("disabled", "disabled");
+}
+}
+    
+}
