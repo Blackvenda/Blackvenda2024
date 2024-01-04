@@ -138,7 +138,7 @@ function generateUserId() {
 
     // Define the postData function here
     async function postData(action, data) {
-        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbwxa8DYCfy1pLicbhe5wFwyrfDv-HcYhUlBxV6GE-apdJ6qQ762MTHod65QMUysn8YBdw/exec';
+        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxeQDSBEozHZfHTt0eaVUAWwidoz13tlArMyhWddKFycGDjJEOi6B8QrUaWnUZsPrq1YQ/exec';
 
         const url = googleScriptURL;
         const response = await fetch(url, {
