@@ -1,5 +1,7 @@
 var getInfo1 = getSizes.slice(0, 2);
 var getInfo11x = getSizes.slice(0, 3);
+var getSizes = "30,31,32,33,34,39,40,35,36,37,38,41,42,43,44,45,S,L,M_,X_,XX,11,12,13,14,15,16";
+
 document.querySelectorAll("#size-display-new")[0].innerHTML =getInfo1;
 
 
