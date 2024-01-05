@@ -8,7 +8,7 @@
         document.getElementById('customer-name').textContent = localStorage.getItem('userName');
         document.getElementById('userNm').textContent = localStorage.getItem('userName');
         document.getElementById('userEm').textContent = localStorage.getItem('userEmail');
-        document.querySelectorAll("#email-ID")[0].value = = localStorage.getItem('userEmail');
+        document.querySelectorAll("#useremail-id")[0].value = localStorage.getItem('userEmail');
         document.querySelectorAll("#nameInput")[0].value = localStorage.getItem('userName');
         document.querySelectorAll("#emailInput")[0].value = localStorage.getItem('userEmail');
         document.querySelectorAll(".loginForReBut")[0].style.display = "none";
