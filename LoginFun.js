@@ -10,15 +10,12 @@
         document.getElementById('userEm').textContent = localStorage.getItem('userEmail');
         document.querySelectorAll("#nameInput")[0].value = localStorage.getItem('userName');
         document.querySelectorAll("#emailInput")[0].value = localStorage.getItem('userEmail');
-        document.querySelectorAll("#useremail-id")[0].value = localStorage.getItem('userEmail');
         document.querySelectorAll(".loginForReBut")[0].style.display = "none";
         document.querySelectorAll(".logForRe")[0].style.display = "";
         document.querySelectorAll(".shippingCartLoin")[0].style.display = "none";
         document.querySelectorAll(".shippingCartDet")[0].style.display = "";
         document.getElementById("nameInput").readOnly = true;
         document.getElementById("emailInput").readOnly = true;
-        console.log("User email set successfully:", localStorage.getItem('userEmail'));
-
         setTimeout(function () {
             signOut(); // Trigger the logout function after 3 minutes
         }, 300000);
