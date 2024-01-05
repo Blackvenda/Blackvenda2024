@@ -6,6 +6,7 @@
         document.querySelectorAll("#singInNew")[0].style.display = "none";
         document.querySelectorAll("#singOutNew")[0].style.display = "";
         document.getElementById('customer-name').textContent = localStorage.getItem('userName');
+        document.getElementById('customer-email-ids').textContent = localStorage.getItem('userEmail');
         document.getElementById('userNm').textContent = localStorage.getItem('userName');
         document.getElementById('userEm').textContent = localStorage.getItem('userEmail');
         document.querySelectorAll("#nameInput")[0].value = localStorage.getItem('userName');
