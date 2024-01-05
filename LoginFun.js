@@ -17,6 +17,8 @@
         document.querySelectorAll(".shippingCartDet")[0].style.display = "";
         document.getElementById("nameInput").readOnly = true;
         document.getElementById("emailInput").readOnly = true;
+        console.log("User email set successfully:", localStorage.getItem('userEmail'));
+
         setTimeout(function () {
             signOut(); // Trigger the logout function after 3 minutes
         }, 300000);
