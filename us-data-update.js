@@ -1,11 +1,6 @@
         function getUserInfoz() {
-       var getEmailAddressHereforAccountsetting = document.getElementById("customer-nail-dd").innerText;
-        var getUsernameforAccountsettings = document.getElementById("customer-name").innerText;
-        document.getElementById("userEm").innerText = getEmailAddressHereforAccountsetting;
-        document.getElementById("userNm").innerText = getUsernameforAccountsettings.toLowerCase();
-		
-            var name = document.getElementById('userNm').textContent;
-            var email = document.getElementById('userEm').textContent;
+       var email = document.getElementById("customer-nail-dd").innerText;
+        var name = document.getElementById("customer-name").innerText;
 
 fetch('https://script.google.com/macros/s/AKfycbzxrQe4-VeD5kmqkjilzPZMW3PUB2ueVbi2qfnvcshPEnDKzsgi-4eDyjEMLcHhQ478kQ/exec?name=' + name + '&email=' + email)
                 .then(response => response.json())
