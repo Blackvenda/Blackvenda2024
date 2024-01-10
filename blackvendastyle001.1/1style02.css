@@ -2,5 +2,3 @@
   a.slide-content.pre-title.efont.white.block {
     color: darkkhaki;
 }
-
-.color-optionsNew{padding-top:10px;display:flex;flex-wrap:wrap}.color-optionNew{width:26px;height:26px;border-radius:5px;border:2px solid #ccc;margin-right:14px;margin-bottom:10px;cursor:pointer;transition:border-color 0.3s}.color-optionNew.selected{border: 3px solid #ff3300; font-size: 12px; color: #797979; transform: scale(1.05, 1.05);}.selected-colorNew{font-weight:bold;color:#333}
