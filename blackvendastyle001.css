@@ -90,3 +90,8 @@
     padding: 13px;
 }
   @media screen and (max-width: 600px) {.size {padding: 10px; }.maincartbox { display: flex; flex-wrap: nowrap; flex-direction: column; }}
+
+.property.on-sale.color-bg.efont {
+    display: inline-grid;
+    text-align: center;
+}
