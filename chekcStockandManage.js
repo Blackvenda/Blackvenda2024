@@ -58,16 +58,12 @@ fetch('https://script.google.com/macros/s/AKfycbxpIgUJoXhnX9ZzdIrEGMZgr_7wDlRZUh
         const DitemColor = document.querySelectorAll("#colorDisplayBew")[0].innerHTML.toLowerCase().replace(" ","");
         const DitemSize = gtB.split("Size-[")[1].split("]")[0].replaceAll("(1)", "").split(" ");
 
-	document.getElementById(displayxx).innerHTML="yS";
-
-
         // Iterate through sizes and check stock
         for (let i = 0; i < DitemSize.length; i++) {
             const fullForm = Ditemcode + "-" + DitemSize[i] + "," + DitemColor + ",".replaceAll(" ","");
             const checkFulC = checking.split(fullForm)[1].split("/")[0];        
             const finQ = checkFulC[3];
             const getSizD = "siz" + DitemSize[i] + "1";
-                document.getElementById(displayxx)innerHTML =fullForm;
             if (checkFulC && finQ === "0") {
                 document.getElementById(getSizD).disabled = true;
                 const sizeLabel = document.getElementById(`siz${DitemSize[i]}`);
