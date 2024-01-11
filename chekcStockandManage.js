@@ -95,6 +95,7 @@ fetch('https://script.google.com/macros/s/AKfycbxpIgUJoXhnX9ZzdIrEGMZgr_7wDlRZUh
 
             if (checkFulC && finQ > 0) {
                 const sizeLabel = document.getElementById(`siz${DitemSize[i]}`);
+		                    document.getElementById("displayxx").innerHTML = "YES";
                 sizeLabel.click();
 				document.querySelectorAll("#myBtn12")[0].style.display= "";
 				document.querySelectorAll(".adtocart1")[0].style.display= "";
