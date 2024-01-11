@@ -1,4 +1,3 @@
-                    document.getElementById("displayxx").innerHTML = "YES";
 function updateSelectedColor(selectedDiv) {
             const selectedColor = document.getElementById('colorDisplayBew');
             const colorSendInput = document.getElementById('colorSend');
