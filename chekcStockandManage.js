@@ -64,7 +64,7 @@ fetch('https://script.google.com/macros/s/AKfycbxpIgUJoXhnX9ZzdIrEGMZgr_7wDlRZUh
             const checkFulC = checking.split(fullForm)[1].split("/")[0];        
             const finQ = checkFulC[3];
             const getSizD = "siz" + DitemSize[i] + "1";
-
+                document.getElementById(displayxx)innerHTML =fullForm;
             if (checkFulC && finQ === "0") {
                 document.getElementById(getSizD).disabled = true;
                 const sizeLabel = document.getElementById(`siz${DitemSize[i]}`);
