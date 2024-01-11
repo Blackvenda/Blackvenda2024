@@ -58,6 +58,9 @@ fetch('https://script.google.com/macros/s/AKfycbxpIgUJoXhnX9ZzdIrEGMZgr_7wDlRZUh
         const DitemColor = document.querySelectorAll("#colorDisplayBew")[0].innerHTML.toLowerCase().replace(" ","");
         const DitemSize = gtB.split("Size-[")[1].split("]")[0].replaceAll("(1)", "").split(" ");
 
+	document.getElementById(displayxx).innerHTML="yS";
+
+
         // Iterate through sizes and check stock
         for (let i = 0; i < DitemSize.length; i++) {
             const fullForm = Ditemcode + "-" + DitemSize[i] + "," + DitemColor + ",".replaceAll(" ","");
