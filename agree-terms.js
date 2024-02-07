@@ -9,5 +9,6 @@ document.getElementById("termsCheckbox").addEventListener("change", function() {
         submitButton.disabled = false;
     } else {
         submitButton.disabled = true;
+        alert("Please agree to website Terms of Service");
     }
 });
