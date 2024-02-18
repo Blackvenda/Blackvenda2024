@@ -189,7 +189,7 @@ document.querySelector('.bar-1').style.width = percentage1Star + '%';
     }
 
     function convertDriveLink(link) {
-        return link.replace('https://drive.google.com/open?id=', 'https://drive.google.com/uc?id=');
+        return link.replace('https://drive.google.com/open?id=', 'https://drive.google.com/thumbnail?id=');
     }
   
   function myReviewFunction() {
