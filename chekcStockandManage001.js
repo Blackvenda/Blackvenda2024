@@ -69,7 +69,7 @@ fetch('https://script.google.com/macros/s/AKfycbxpIgUJoXhnX9ZzdIrEGMZgr_7wDlRZUh
                 const sizeLabel = document.getElementById(`siz${DitemSize[i]}`);
                 sizeLabel.classList.replace('size', 'size1');
 				document.querySelectorAll("#myBtn12")[0].style.display= "none";
-				document.querySelectorAll(".adtocart1")[0].style.display= "none";
+				document.querySelectorAll(".maincartbox")[0].style.display= "none";
 				document.querySelectorAll(".qtyAviBal")[0].innerHTML ="Out of stock";
 				
             }
@@ -97,7 +97,7 @@ fetch('https://script.google.com/macros/s/AKfycbxpIgUJoXhnX9ZzdIrEGMZgr_7wDlRZUh
                 const sizeLabel = document.getElementById(`siz${DitemSize[i]}`);
                 sizeLabel.click();
 				document.querySelectorAll("#myBtn12")[0].style.display= "";
-				document.querySelectorAll(".adtocart1")[0].style.display= "";
+				document.querySelectorAll(".maincartbox")[0].style.display= "";
 				document.querySelectorAll(".qtyAviBal")[0].innerHTML =finQ +" Pieces available";
                 break;
                
