@@ -86,23 +86,25 @@ fetch('https://script.google.com/macros/s/AKfycbxpIgUJoXhnX9ZzdIrEGMZgr_7wDlRZUh
 	        const DitemColor = document.querySelectorAll("#colorDisplayBew")[0].innerHTML.toLowerCase().replace(" ","");
 	        const DitemSize = gtB.split("Size-[")[1].split("]")[0].replaceAll("(1)", "").split(" ");
         
-        // Iterate through sizes and check stock
-        for (let i = 0; i < DitemSize.length; i++) {
-            const fullForm = Ditemcode + "-" + DitemSize[i] + "," + DitemColor + ",";
-            const checkFulC = checking.split(fullForm)[1].split("/")[0].split(",");
-            const finQ = checkFulC[3];
-            const getSizD = "siz" + DitemSize[i] + "1";
+// Iterate through sizes and check stock
+for (let i = 0; i < DitemSize.length; i++) {
+    const fullForm = Ditemcode + "-" + DitemSize[i] + "," + DitemColor + ",";
+    const checkFulC = checking.split(fullForm)[1].split("/")[0].split(",");
+    const finQ = checkFulC[3];
+    const getSizD = "siz" + DitemSize[i] + "1";
 
-            if (checkFulC && finQ > 0) {
-                const sizeLabel = document.getElementById(`siz${DitemSize[i]}`);
-                sizeLabel.click();
-				document.querySelectorAll("#myBtn12")[0].style.display= "";
-				document.querySelectorAll(".maincartbox")[0].style.display= "";
-				document.querySelectorAll(".qtyAviBal")[0].innerHTML =finQ +" Pieces available";
-                break;
-               
-            }
-        }
+    if (checkFulC && finQ > 0) {
+        const sizeLabel = document.getElementById(`siz${DitemSize[i]}`);
+        // Click event with timeout
+        setTimeout(function() {
+            sizeLabel.click();
+            document.querySelectorAll("#myBtn12")[0].style.display = "";
+            document.querySelectorAll(".maincartbox")[0].style.display = "";
+            document.querySelectorAll(".qtyAviBal")[0].innerHTML = finQ + " Pieces available";
+        }, 2000); // Adjust timeout delay (in milliseconds) as needed
+        break;
+    }
+}
     })
 
     
