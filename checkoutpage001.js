@@ -115,8 +115,8 @@ function calculateTotalPrice(cartItems) {
 
 // Function to calculate shipping cost
 function calculateShippingCost(cartItems) {
-    var baseShippingCost = 400;
-    var additionalShippingPerItem = 200;
+    var baseShippingCost = 401;
+    var additionalShippingPerItem = 201;
     var totalPrice = 0;
 
     // Calculate total price of items in the cart
