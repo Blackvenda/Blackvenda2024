@@ -8,3 +8,5 @@
     window.addEventListener('DOMContentLoaded', function() {
         setThumbnailUrlToInputField();
     });
+
+window.onload=function(){document.getElementById('CurrentProductURL').value=window.location.href
