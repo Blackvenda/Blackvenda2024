@@ -2,7 +2,7 @@
     function setThumbnailUrlToInputField() {
         var thumbnailUrl = getImageUrl(); // Get thumbnail image URL
         document.getElementById("productImgUrl").value = thumbnailUrl; // Set input field value
-        window.onload=function(){document.getElementById('CurrentProductURL').value=window.location.href
+        document.getElementById('CurrentProductURL').value=window.location.href
     }
 
     // Call the function after the document has fully loaded
