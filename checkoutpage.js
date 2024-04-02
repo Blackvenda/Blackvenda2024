@@ -117,9 +117,21 @@ function calculateTotalPrice(cartItems) {
 function calculateShippingCost(cartItems) {
     var baseShippingCost = 400;
     var additionalShippingPerItem = 200;
+    var totalPrice = 0;
 
-    return baseShippingCost + (cartItems.length - 1) * additionalShippingPerItem;
+    // Calculate total price of items in the cart
+    for (var i = 0; i < cartItems.length; i++) {
+        totalPrice += cartItems[i].price;
+    }
+
+    // Check if the total price ends with '99' or if additionalShippingPerItem ends with '99'
+    if (totalPrice % 100 == 99 || additionalShippingPerItem % 100 == 99) {
+        return baseShippingCost + 1 + (cartItems.length - 1) * 201; // Adjusted shipping cost for price ending with '99'
+    } else {
+        return baseShippingCost + (cartItems.length - 1) * additionalShippingPerItem;
+    }
 }
+
 
 function updateCartDropdown(cartItems) {
     var cartDropdown = document.getElementById("cart-items");
