@@ -80,22 +80,15 @@ function populateFormFields(cartItems) {
         imgurrs.push(item.imgurr);
     });
 
-// Set values of input fields by joining array values with commas
-        document.getElementById("cartItemname").value = itemNames.join(',');
-        document.getElementById("cartsize").value = sizes.join(',');
-        document.getElementById("cartcolor").value = colors.join(',');
-        
-        // Concatenate item codes with sizes
-        var itemCodesWithSizes = [];
-        for (var i = 0; i < itemCodes.length; i++) {
-            itemCodesWithSizes.push(itemCodes[i] + '-' + sizes[i]);
-        }
-        document.getElementById("cartItemcode").value = itemCodesWithSizes.join(',');
-
-        document.getElementById("cartItemqtt").value = quantities.join(',');
-        document.getElementById("cartPrice").value = prices.join(','); // Set the value of the price input field
-        document.querySelectorAll("#CurrentProductURL")[0].value = pageURLs.join(', ');
-        document.querySelectorAll("#cartproductImgUrl")[0].value = imgurrs.join(', ');
+    // Set values of input fields by joining array values with commas
+    document.getElementById("cartItemname").value = itemNames.join(', ');
+    document.getElementById("cartsize").value = sizes.join(', ');
+    document.getElementById("cartcolor").value = colors.join(', ');
+    document.getElementById("cartItemcode").value = itemCodes.join(', ');
+    document.getElementById("cartItemqtt").value = quantities.join(', ');
+    document.getElementById("cartPrice").value = prices.join(', '); // Set the value of the price input field
+    document.querySelectorAll("#CurrentProductURL")[0].value = pageURLs.join(', ');
+    document.querySelectorAll("#cartproductImgUrl")[0].value = imgurrs.join(', ');
 }
 
 // Function to calculate total price including shipping and handling
@@ -115,8 +108,8 @@ function calculateTotalPrice(cartItems) {
 
 // Function to calculate shipping cost
 function calculateShippingCost(cartItems) {
-    var baseShippingCost = 401;
-    var additionalShippingPerItem = 201;
+    var baseShippingCost = 400;
+    var additionalShippingPerItem = 200;
 
     return baseShippingCost + (cartItems.length - 1) * additionalShippingPerItem;
 }
@@ -136,10 +129,10 @@ function updateCartDropdown(cartItems) {
         var itemName = document.createElement('span');
         itemName.classList.add('item-name');
         var truncatedName = item.productName.length > 30 ? item.productName.substring(0, 30) + '...' : item.productName;
-        itemName.innerHTML = truncatedName + '<br/> <b>x ' + item.quantity +' </b>';
+        itemName.textContent = truncatedName;
 
         var itemDetails = document.createElement('span');
-        itemDetails.innerHTML = 'Item code - ' + item.itemCode + ' <hr/> Size: ' + item.size + ' <hr/> Color: ' + item.color + ' <hr/> Price: <b>' + totalPrice.toFixed(2) +'</b>';
+        itemDetails.innerHTML = ' - ' + item.itemCode + ' - Size: ' + item.size + ' - Color: ' + item.color + ' - Quantity: ' + item.quantity + ' - Price: ' + totalPrice.toFixed(2);
 
         var removeButton = document.createElement('button');
         removeButton.textContent = 'x';
