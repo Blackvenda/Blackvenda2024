@@ -129,10 +129,10 @@ function updateCartDropdown(cartItems) {
         var itemName = document.createElement('span');
         itemName.classList.add('item-name');
         var truncatedName = item.productName.length > 30 ? item.productName.substring(0, 30) + '...' : item.productName;
-        itemName.textContent = truncatedName;
+        itemName.innerHTML = truncatedName +'x'+ item.quantity;
 
         var itemDetails = document.createElement('span');
-        itemDetails.innerHTML = ' - ' + item.itemCode + ' - Size: ' + item.size + ' - Color: ' + item.color + ' - Quantity: ' + item.quantity + ' - Price: ' + totalPrice.toFixed(2);
+        itemDetails.innerHTML = item.itemCode + ' <hr/> Size: ' + item.size + ' <hr/> Color: ' + item.color + ' <hr/> Price: ' + totalPrice.toFixed(2);
 
         var removeButton = document.createElement('button');
         removeButton.textContent = 'x';
