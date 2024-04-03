@@ -58,9 +58,6 @@
         return [];
     }
 
-   // Set current page URL to a form field
-            document.getElementById('CurrentProductURL').value = window.location.href;
-
     // Function to toggle cart dropdown visibility
     function toggleCartDropdown() {
         var cartDropdown = document.getElementById("addtocart-dropdown");
