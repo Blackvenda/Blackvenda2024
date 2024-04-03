@@ -129,7 +129,7 @@ function updateCartDropdown(cartItems) {
         var itemName = document.createElement('span');
         itemName.classList.add('item-name');
         var truncatedName = item.productName.length > 30 ? item.productName.substring(0, 30) + '...' : item.productName;
-        itemName.innerHTML = truncatedName +'x'+ item.quantity;
+        itemName.innerHTML = truncatedName +'<br/> x'+ item.quantity;
 
         var itemDetails = document.createElement('span');
         itemDetails.innerHTML = item.itemCode + ' <hr/> Size: ' + item.size + ' <hr/> Color: ' + item.color + ' <hr/> Price: ' + totalPrice.toFixed(2);
