@@ -82,8 +82,8 @@ function populateFormFields(cartItems) {
 
     // Set values of input fields by joining array values with commas
     document.getElementById("cartItemname").value = itemNames.join(', ');
-    document.getElementById("cartsize").value = sizes.join(', ');
-    document.getElementById("cartcolor").value = colors.join(', ');
+    document.getElementById("cartsize").value = sizes.join(',');
+    document.getElementById("cartcolor").value = colors.join(',');
     document.getElementById("cartItemcode").value = itemCodes.join(', ');
     document.getElementById("cartItemqtt").value = quantities.join(', ');
     document.getElementById("cartPrice").value = prices.join(', '); // Set the value of the price input field
