@@ -81,14 +81,14 @@ function populateFormFields(cartItems) {
     });
 
     // Set values of input fields by joining array values with commas
-    document.getElementById("cartItemname").value = itemNames.join(', ');
+    document.getElementById("cartItemname").value = itemNames.join(',');
     document.getElementById("cartsize").value = sizes.join(',');
     document.getElementById("cartcolor").value = colors.join(',');
-    document.getElementById("cartItemcode").value = itemCodes.join(', ');
-    document.getElementById("cartItemqtt").value = quantities.join(', ');
-    document.getElementById("cartPrice").value = prices.join(', '); // Set the value of the price input field
-    document.querySelectorAll("#CurrentProductURL")[0].value = pageURLs.join(', ');
-    document.querySelectorAll("#cartproductImgUrl")[0].value = imgurrs.join(', ');
+    document.getElementById("cartItemcode").value = itemCodes.join(',');
+    document.getElementById("cartItemqtt").value = quantities.join(',');
+    document.getElementById("cartPrice").value = prices.join(','); // Set the value of the price input field
+    document.querySelectorAll("#CurrentProductURL")[0].value = pageURLs.join(',');
+    document.querySelectorAll("#cartproductImgUrl")[0].value = imgurrs.join(',');
 }
 
 // Function to calculate total price including shipping and handling
