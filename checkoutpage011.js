@@ -73,7 +73,7 @@ function populateFormFields(cartItems) {
         itemNames.push(item.productName);
         sizes.push(item.size);
         colors.push(item.color);
-        itemCodes.push(item.itemCode);
+        itemCodes.push(item.itemCode + '-' + item.size); 
         quantities.push(item.quantity);
         prices.push(parseFloat(item.price.replace(/[^\d.]/g, "")) * parseInt(item.quantity)); // Calculate total price based on quantity
         pageURLs.push(item.pageURL);
@@ -84,7 +84,7 @@ function populateFormFields(cartItems) {
     document.getElementById("cartItemname").value = itemNames.join(', ');
     document.getElementById("cartsize").value = sizes.join(',');
     document.getElementById("cartcolor").value = colors.join(',');
-    document.getElementById("cartItemcode").value = itemCodes+'-'+sizes.join(', ');
+    document.getElementById("cartItemcode").value = itemCodes.join(', ');
     document.getElementById("cartItemqtt").value = quantities.join(', ');
     document.getElementById("cartPrice").value = prices.join(', '); // Set the value of the price input field
     document.querySelectorAll("#CurrentProductURL")[0].value = pageURLs.join(', ');
