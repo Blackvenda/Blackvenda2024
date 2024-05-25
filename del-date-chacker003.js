@@ -32,7 +32,8 @@ function calculateEstimatedShippingDate() {
             document.querySelectorAll(".diliverCrg")[0].innerText = document.querySelectorAll(".delAmount")[0].innerText;
             document.querySelectorAll(".estDat")[0].innerHTML = document.querySelectorAll("#estimatedDate2")[0].innerHTML;
         } else if (gtInfoLocShipping.includes("Y")) {
-            document.querySelectorAll(".mainCheckingDelShow")[0].style.display = "none";
+            document.querySelectorAll(".mainCheckingDelShow")[0].style.display = "";
+            document.querySelectorAll(".dilDater")[0]innerHTML="3-7 Working days";
             document.querySelectorAll("#estimatedDate2")[0].style.display = "none";
             document.querySelectorAll(".overTheSea")[0].style.display = "none";
         } else if (gtInfoInterwithLocShipping.includes("Y")) {
